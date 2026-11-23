@@ -1,0 +1,187 @@
+Steps: 10240 | Eval reward: 983.22
+New best reward: 983.22
+Steps: 20480 | Eval reward: 565.19
+Steps: 30720 | Eval reward: 272.45
+Steps: 40960 | Eval reward: 642.80
+Steps: 51200 | Eval reward: 758.80
+Steps: 61440 | Eval reward: 485.04
+Steps: 71680 | Eval reward: 781.28
+Steps: 81920 | Eval reward: 346.05
+Steps: 90112 | Eval reward: 277.89
+Steps: 100352 | Eval reward: 730.66
+Steps: 110592 | Eval reward: 552.43
+Steps: 120832 | Eval reward: 329.83
+Steps: 131072 | Eval reward: 873.27
+Steps: 141312 | Eval reward: 1005.82
+New best reward: 1005.82
+Steps: 151552 | Eval reward: 1019.20
+New best reward: 1019.20
+Steps: 161792 | Eval reward: 1998.89
+New best reward: 1998.89
+Steps: 172032 | Eval reward: 1743.05
+Steps: 180224 | Eval reward: 2528.92
+New best reward: 2528.92
+Steps: 190464 | Eval reward: 2093.72
+[OC K-means] step 200704: NMI vs true dynamics = 0.392 | cluster sizes min/max = 207/1151
+Steps: 200704 | Eval reward: 2316.94
+Steps: 210944 | Eval reward: 2029.33
+Steps: 221184 | Eval reward: 2733.46
+New best reward: 2733.46
+Steps: 231424 | Eval reward: 2278.42
+Steps: 241664 | Eval reward: 2503.91
+[OC K-means] step 251904: NMI vs true dynamics = 0.396 | cluster sizes min/max = 128/1077
+Steps: 251904 | Eval reward: 2588.04
+Steps: 260096 | Eval reward: 2330.31
+Steps: 270336 | Eval reward: 2272.41
+Steps: 280576 | Eval reward: 2221.95
+Steps: 290816 | Eval reward: 2115.65
+[OC K-means] step 301056: NMI vs true dynamics = 0.406 | cluster sizes min/max = 314/1344
+Steps: 301056 | Eval reward: 2317.99
+Steps: 311296 | Eval reward: 2427.86
+Steps: 321536 | Eval reward: 2464.71
+Steps: 331776 | Eval reward: 1916.76
+Steps: 342016 | Eval reward: 1942.37
+Steps: 350208 | Eval reward: 2327.46
+[OC K-means] step 352256: NMI vs true dynamics = 0.418 | cluster sizes min/max = 299/1270
+Steps: 360448 | Eval reward: 2222.18
+Steps: 370688 | Eval reward: 2130.06
+Steps: 380928 | Eval reward: 2190.94
+Steps: 391168 | Eval reward: 1884.51
+[OC K-means] step 401408: NMI vs true dynamics = 0.416 | cluster sizes min/max = 299/1200
+Steps: 401408 | Eval reward: 1893.58
+Steps: 411648 | Eval reward: 1947.88
+Steps: 421888 | Eval reward: 1917.47
+Steps: 430080 | Eval reward: 1810.02
+Steps: 440320 | Eval reward: 2024.91
+Steps: 450560 | Eval reward: 1676.45
+[OC K-means] step 452608: NMI vs true dynamics = 0.421 | cluster sizes min/max = 300/1259
+Steps: 460800 | Eval reward: 1734.24
+Steps: 471040 | Eval reward: 1946.78
+Steps: 481280 | Eval reward: 2029.54
+Steps: 491520 | Eval reward: 1912.41
+[OC K-means] step 501760: NMI vs true dynamics = 0.421 | cluster sizes min/max = 362/1095
+Steps: 501760 | Eval reward: 2141.22
+Steps: 512000 | Eval reward: 2067.57
+Steps: 520192 | Eval reward: 1743.45
+Steps: 530432 | Eval reward: 1897.00
+Steps: 540672 | Eval reward: 2138.50
+[OC K-means] step 550912: NMI vs true dynamics = 0.411 | cluster sizes min/max = 355/1174
+Steps: 550912 | Eval reward: 1980.97
+Steps: 561152 | Eval reward: 2063.16
+Steps: 571392 | Eval reward: 2123.33
+Steps: 581632 | Eval reward: 1938.30
+Steps: 591872 | Eval reward: 1954.51
+Steps: 600064 | Eval reward: 2132.77
+[OC K-means] step 602112: NMI vs true dynamics = 0.424 | cluster sizes min/max = 381/896
+Steps: 610304 | Eval reward: 2218.32
+Steps: 620544 | Eval reward: 2156.45
+Steps: 630784 | Eval reward: 2169.75
+Steps: 641024 | Eval reward: 2322.08
+[OC K-means] step 651264: NMI vs true dynamics = 0.414 | cluster sizes min/max = 295/1164
+Steps: 651264 | Eval reward: 2278.25
+Steps: 661504 | Eval reward: 2374.75
+Steps: 671744 | Eval reward: 2217.60
+Steps: 681984 | Eval reward: 2488.42
+Steps: 690176 | Eval reward: 1953.78
+Steps: 700416 | Eval reward: 2251.98
+[OC K-means] step 702464: NMI vs true dynamics = 0.406 | cluster sizes min/max = 300/1177
+Steps: 710656 | Eval reward: 2162.53
+Steps: 720896 | Eval reward: 2070.97
+Steps: 731136 | Eval reward: 2052.83
+Steps: 741376 | Eval reward: 1796.44
+[OC K-means] step 751616: NMI vs true dynamics = 0.405 | cluster sizes min/max = 405/878
+Steps: 751616 | Eval reward: 1744.33
+Steps: 761856 | Eval reward: 2197.30
+Steps: 770048 | Eval reward: 2270.20
+Steps: 780288 | Eval reward: 2038.93
+Steps: 790528 | Eval reward: 2214.34
+[OC K-means] step 800768: NMI vs true dynamics = 0.415 | cluster sizes min/max = 397/1266
+Steps: 800768 | Eval reward: 2110.53
+Steps: 811008 | Eval reward: 2193.83
+Steps: 821248 | Eval reward: 2220.02
+Steps: 831488 | Eval reward: 1599.82
+Steps: 841728 | Eval reward: 2149.50
+[OC K-means] step 851968: NMI vs true dynamics = 0.417 | cluster sizes min/max = 353/1405
+Steps: 851968 | Eval reward: 1921.39
+Steps: 860160 | Eval reward: 2004.35
+Steps: 870400 | Eval reward: 1806.14
+Steps: 880640 | Eval reward: 1846.37
+Steps: 890880 | Eval reward: 1716.52
+[OC K-means] step 901120: NMI vs true dynamics = 0.418 | cluster sizes min/max = 424/1382
+Steps: 901120 | Eval reward: 2159.81
+Steps: 911360 | Eval reward: 2006.30
+Steps: 921600 | Eval reward: 1911.99
+Steps: 931840 | Eval reward: 1688.53
+Steps: 940032 | Eval reward: 2093.87
+Steps: 950272 | Eval reward: 1936.24
+[OC K-means] step 952320: NMI vs true dynamics = 0.418 | cluster sizes min/max = 310/1346
+Steps: 960512 | Eval reward: 1768.76
+Steps: 970752 | Eval reward: 1978.96
+Steps: 980992 | Eval reward: 2055.57
+Steps: 991232 | Eval reward: 1932.10
+[OC K-means] step 1001472: NMI vs true dynamics = 0.423 | cluster sizes min/max = 427/1585
+Steps: 1001472 | Eval reward: 1945.93
+Steps: 1011712 | Eval reward: 1869.51
+Steps: 1021952 | Eval reward: 1890.78
+Steps: 1030144 | Eval reward: 1678.44
+Steps: 1040384 | Eval reward: 2128.18
+Steps: 1050624 | Eval reward: 2037.89
+[OC K-means] step 1052672: NMI vs true dynamics = 0.408 | cluster sizes min/max = 462/1401
+Steps: 1060864 | Eval reward: 2051.96
+Steps: 1071104 | Eval reward: 2322.55
+Steps: 1081344 | Eval reward: 2229.01
+Steps: 1091584 | Eval reward: 2276.27
+[OC K-means] step 1101824: NMI vs true dynamics = 0.405 | cluster sizes min/max = 449/1511
+Steps: 1101824 | Eval reward: 2184.97
+Steps: 1110016 | Eval reward: 1855.72
+Steps: 1120256 | Eval reward: 1916.04
+Steps: 1130496 | Eval reward: 1881.86
+Steps: 1140736 | Eval reward: 2207.44
+[OC K-means] step 1150976: NMI vs true dynamics = 0.397 | cluster sizes min/max = 392/1501
+Steps: 1150976 | Eval reward: 2215.42
+Steps: 1161216 | Eval reward: 2054.15
+Steps: 1171456 | Eval reward: 2113.43
+Steps: 1181696 | Eval reward: 1952.73
+Steps: 1191936 | Eval reward: 2116.36
+Steps: 1200128 | Eval reward: 1797.07
+[OC K-means] step 1202176: NMI vs true dynamics = 0.401 | cluster sizes min/max = 364/1539
+Steps: 1210368 | Eval reward: 1953.17
+Steps: 1220608 | Eval reward: 2087.05
+Steps: 1230848 | Eval reward: 1971.92
+Steps: 1241088 | Eval reward: 1984.79
+[OC K-means] step 1251328: NMI vs true dynamics = 0.401 | cluster sizes min/max = 432/1462
+Steps: 1251328 | Eval reward: 1965.53
+Steps: 1261568 | Eval reward: 1962.82
+Steps: 1271808 | Eval reward: 1705.04
+Steps: 1280000 | Eval reward: 1775.34
+Steps: 1290240 | Eval reward: 1863.85
+Steps: 1300480 | Eval reward: 1834.74
+[OC K-means] step 1302528: NMI vs true dynamics = 0.403 | cluster sizes min/max = 438/1332
+Steps: 1310720 | Eval reward: 1932.42
+Steps: 1320960 | Eval reward: 1722.89
+Steps: 1331200 | Eval reward: 1481.58
+Steps: 1341440 | Eval reward: 1840.17
+[OC K-means] step 1351680: NMI vs true dynamics = 0.403 | cluster sizes min/max = 480/1327
+Steps: 1351680 | Eval reward: 1737.27
+Steps: 1361920 | Eval reward: 1671.05
+Steps: 1370112 | Eval reward: 1710.51
+Steps: 1380352 | Eval reward: 2167.96
+Steps: 1390592 | Eval reward: 2004.96
+[OC K-means] step 1400832: NMI vs true dynamics = 0.401 | cluster sizes min/max = 380/1288
+Steps: 1400832 | Eval reward: 1886.69
+Steps: 1411072 | Eval reward: 1734.69
+Steps: 1421312 | Eval reward: 1633.98
+Steps: 1431552 | Eval reward: 1973.17
+Steps: 1441792 | Eval reward: 1847.37
+[OC K-means] step 1452032: NMI vs true dynamics = 0.396 | cluster sizes min/max = 430/1251
+Steps: 1452032 | Eval reward: 1845.59
+Steps: 1460224 | Eval reward: 1837.22
+Steps: 1470464 | Eval reward: 1779.27
+Steps: 1480704 | Eval reward: 1782.54
+Steps: 1490944 | Eval reward: 2094.55
+[OC K-means] step 1501184: NMI vs true dynamics = 0.401 | cluster sizes min/max = 444/1059
+Steps: 1501184 | Eval reward: 1882.91
+Training completed!
+Final checkpoint: hopper_ldr_kfn_results/hopper_ldr_kfn_final.pt
+Finished training episodes: 3949
+Optimization records: 733

@@ -1,0 +1,28 @@
+Steps: 100352 | Eval reward: 1023.57
+New best reward: 1023.57
+Steps: 200704 | Eval reward: 1206.48
+New best reward: 1206.48
+Steps: 301056 | Eval reward: 2556.95
+New best reward: 2556.95
+Steps: 401408 | Eval reward: 3427.98
+New best reward: 3427.98
+Steps: 501760 | Eval reward: 3262.32
+Steps: 600064 | Eval reward: 3428.98
+New best reward: 3428.98
+Steps: 700416 | Eval reward: 3471.60
+New best reward: 3471.60
+Steps: 800768 | Eval reward: 3589.96
+New best reward: 3589.96
+Steps: 901120 | Eval reward: 3551.81
+Steps: 1001472 | Eval reward: 3617.89
+New best reward: 3617.89
+Steps: 1101824 | Eval reward: 3522.50
+Steps: 1200128 | Eval reward: 3696.11
+New best reward: 3696.11
+Steps: 1300480 | Eval reward: 3002.97
+Steps: 1400832 | Eval reward: 3645.27
+Steps: 1501184 | Eval reward: 3438.31
+Training completed!
+Final checkpoint: walker2d_ldr_fn_results/walker2d_ldr_fn_final.pt
+Finished training episodes: 2460
+Optimization records: 733

@@ -1,0 +1,32 @@
+Steps: 100352 | Eval reward: -508.89
+New best reward: -508.89
+Steps: 200704 | Eval reward: 787.84
+New best reward: 787.84
+Steps: 301056 | Eval reward: 684.03
+Steps: 401408 | Eval reward: 797.04
+New best reward: 797.04
+Steps: 501760 | Eval reward: 928.17
+New best reward: 928.17
+Steps: 600064 | Eval reward: 964.53
+New best reward: 964.53
+Steps: 700416 | Eval reward: 955.21
+Steps: 800768 | Eval reward: 1319.89
+New best reward: 1319.89
+Steps: 901120 | Eval reward: 1938.19
+New best reward: 1938.19
+Steps: 1001472 | Eval reward: 2483.00
+New best reward: 2483.00
+Steps: 1101824 | Eval reward: 3180.09
+New best reward: 3180.09
+Steps: 1200128 | Eval reward: 3917.96
+New best reward: 3917.96
+Steps: 1300480 | Eval reward: 4252.04
+New best reward: 4252.04
+Steps: 1400832 | Eval reward: 4538.58
+New best reward: 4538.58
+Steps: 1501184 | Eval reward: 4844.97
+New best reward: 4844.97
+Training completed!
+Final checkpoint: ant_ldr_fn_results/ant_ldr_fn_final.pt
+Finished training episodes: 1649
+Optimization records: 733

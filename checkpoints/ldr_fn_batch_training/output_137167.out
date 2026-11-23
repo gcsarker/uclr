@@ -1,0 +1,22 @@
+Steps: 100352 | Eval reward: 686.43
+New best reward: 686.43
+Steps: 200704 | Eval reward: 1153.42
+New best reward: 1153.42
+Steps: 301056 | Eval reward: 2093.16
+New best reward: 2093.16
+Steps: 401408 | Eval reward: 1630.12
+Steps: 501760 | Eval reward: 1969.33
+Steps: 600064 | Eval reward: 1519.81
+Steps: 700416 | Eval reward: 1699.31
+Steps: 800768 | Eval reward: 1731.57
+Steps: 901120 | Eval reward: 1584.29
+Steps: 1001472 | Eval reward: 1801.08
+Steps: 1101824 | Eval reward: 1710.25
+Steps: 1200128 | Eval reward: 1448.23
+Steps: 1300480 | Eval reward: 1500.39
+Steps: 1400832 | Eval reward: 1350.18
+Steps: 1501184 | Eval reward: 1623.19
+Training completed!
+Final checkpoint: hopper_ldr_fn_results/hopper_ldr_fn_final.pt
+Finished training episodes: 4625
+Optimization records: 733

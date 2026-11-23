@@ -1,0 +1,185 @@
+Steps: 10240 | Eval reward: 58.81
+New best reward: 58.81
+Steps: 20480 | Eval reward: 122.16
+New best reward: 122.16
+Steps: 30720 | Eval reward: 192.51
+New best reward: 192.51
+Steps: 40960 | Eval reward: 554.77
+New best reward: 554.77
+Steps: 51200 | Eval reward: 402.52
+Steps: 61440 | Eval reward: 198.79
+Steps: 71680 | Eval reward: 621.21
+New best reward: 621.21
+Steps: 81920 | Eval reward: 388.95
+Steps: 90112 | Eval reward: 267.14
+Steps: 100352 | Eval reward: 277.60
+Steps: 110592 | Eval reward: 310.53
+Steps: 120832 | Eval reward: 359.77
+Steps: 131072 | Eval reward: 370.21
+Steps: 141312 | Eval reward: 294.15
+Steps: 151552 | Eval reward: 133.46
+Steps: 161792 | Eval reward: 408.43
+Steps: 172032 | Eval reward: 440.61
+Steps: 180224 | Eval reward: 252.84
+Steps: 190464 | Eval reward: 594.35
+Steps: 200704 | Eval reward: 770.24
+New best reward: 770.24
+Steps: 210944 | Eval reward: 917.31
+New best reward: 917.31
+Steps: 221184 | Eval reward: 806.86
+Steps: 231424 | Eval reward: 370.70
+Steps: 241664 | Eval reward: 373.11
+Steps: 251904 | Eval reward: 393.01
+Steps: 260096 | Eval reward: 518.00
+Steps: 270336 | Eval reward: 968.12
+New best reward: 968.12
+Steps: 280576 | Eval reward: 969.16
+New best reward: 969.16
+Steps: 290816 | Eval reward: 552.70
+Steps: 301056 | Eval reward: 366.89
+Steps: 311296 | Eval reward: 347.90
+Steps: 321536 | Eval reward: 368.97
+Steps: 331776 | Eval reward: 483.88
+Steps: 342016 | Eval reward: 424.13
+Steps: 350208 | Eval reward: 424.56
+Steps: 360448 | Eval reward: 406.64
+Steps: 370688 | Eval reward: 485.68
+Steps: 380928 | Eval reward: 683.26
+Steps: 391168 | Eval reward: 545.81
+Steps: 401408 | Eval reward: 450.98
+Steps: 411648 | Eval reward: 385.31
+Steps: 421888 | Eval reward: 426.84
+Steps: 430080 | Eval reward: 420.30
+Steps: 440320 | Eval reward: 437.38
+Steps: 450560 | Eval reward: 506.30
+Steps: 460800 | Eval reward: 446.01
+Steps: 471040 | Eval reward: 461.32
+Steps: 481280 | Eval reward: 485.49
+Steps: 491520 | Eval reward: 538.65
+Steps: 501760 | Eval reward: 441.53
+Steps: 512000 | Eval reward: 500.73
+Steps: 520192 | Eval reward: 435.42
+Steps: 530432 | Eval reward: 475.55
+Steps: 540672 | Eval reward: 459.77
+Steps: 550912 | Eval reward: 436.10
+Steps: 561152 | Eval reward: 448.71
+Steps: 571392 | Eval reward: 555.18
+Steps: 581632 | Eval reward: 529.41
+Steps: 591872 | Eval reward: 441.28
+Steps: 600064 | Eval reward: 474.53
+Steps: 610304 | Eval reward: 516.28
+Steps: 620544 | Eval reward: 451.10
+Steps: 630784 | Eval reward: 496.07
+Steps: 641024 | Eval reward: 679.88
+Steps: 651264 | Eval reward: 679.90
+Steps: 661504 | Eval reward: 1015.33
+New best reward: 1015.33
+Steps: 671744 | Eval reward: 1261.91
+New best reward: 1261.91
+Steps: 681984 | Eval reward: 1745.83
+New best reward: 1745.83
+Steps: 690176 | Eval reward: 2301.45
+New best reward: 2301.45
+Steps: 700416 | Eval reward: 2510.20
+New best reward: 2510.20
+Steps: 710656 | Eval reward: 2016.07
+Steps: 720896 | Eval reward: 2527.94
+New best reward: 2527.94
+Steps: 731136 | Eval reward: 2449.47
+Steps: 741376 | Eval reward: 2567.43
+New best reward: 2567.43
+Steps: 751616 | Eval reward: 2503.97
+Steps: 761856 | Eval reward: 2625.27
+New best reward: 2625.27
+Steps: 770048 | Eval reward: 2590.73
+Steps: 780288 | Eval reward: 2705.30
+New best reward: 2705.30
+Steps: 790528 | Eval reward: 2614.72
+Steps: 800768 | Eval reward: 2876.49
+New best reward: 2876.49
+Steps: 811008 | Eval reward: 2665.16
+Steps: 821248 | Eval reward: 2655.68
+Steps: 831488 | Eval reward: 3060.59
+New best reward: 3060.59
+Steps: 841728 | Eval reward: 2927.25
+Steps: 851968 | Eval reward: 2892.12
+Steps: 860160 | Eval reward: 2905.08
+Steps: 870400 | Eval reward: 2659.37
+Steps: 880640 | Eval reward: 2668.38
+Steps: 890880 | Eval reward: 2871.39
+Steps: 901120 | Eval reward: 2601.74
+Steps: 911360 | Eval reward: 2829.53
+Steps: 921600 | Eval reward: 2799.84
+Steps: 931840 | Eval reward: 2852.70
+Steps: 940032 | Eval reward: 2815.10
+Steps: 950272 | Eval reward: 2729.13
+Steps: 960512 | Eval reward: 789.29
+Steps: 970752 | Eval reward: 2748.93
+Steps: 980992 | Eval reward: 3023.37
+Steps: 991232 | Eval reward: 3085.25
+New best reward: 3085.25
+Steps: 1001472 | Eval reward: 2906.72
+Steps: 1011712 | Eval reward: 2957.21
+Steps: 1021952 | Eval reward: 2844.12
+Steps: 1030144 | Eval reward: 2926.68
+Steps: 1040384 | Eval reward: 3073.05
+Steps: 1050624 | Eval reward: 3038.04
+Steps: 1060864 | Eval reward: 2941.65
+Steps: 1071104 | Eval reward: 3159.45
+New best reward: 3159.45
+Steps: 1081344 | Eval reward: 2964.54
+Steps: 1091584 | Eval reward: 3178.11
+New best reward: 3178.11
+Steps: 1101824 | Eval reward: 3033.56
+Steps: 1110016 | Eval reward: 3051.67
+Steps: 1120256 | Eval reward: 2935.36
+Steps: 1130496 | Eval reward: 2660.81
+Steps: 1140736 | Eval reward: 3131.43
+Steps: 1150976 | Eval reward: 3183.32
+New best reward: 3183.32
+Steps: 1161216 | Eval reward: 1255.46
+Steps: 1171456 | Eval reward: 3202.33
+New best reward: 3202.33
+Steps: 1181696 | Eval reward: 3237.14
+New best reward: 3237.14
+Steps: 1191936 | Eval reward: 3164.54
+Steps: 1200128 | Eval reward: 3217.33
+Steps: 1210368 | Eval reward: 3068.92
+Steps: 1220608 | Eval reward: 3241.68
+New best reward: 3241.68
+Steps: 1230848 | Eval reward: 3169.56
+Steps: 1241088 | Eval reward: 274.61
+Steps: 1251328 | Eval reward: 32.06
+Steps: 1261568 | Eval reward: 790.33
+Steps: 1271808 | Eval reward: -1.00
+Steps: 1280000 | Eval reward: 1008.22
+Steps: 1290240 | Eval reward: 3180.69
+Steps: 1300480 | Eval reward: 3327.14
+New best reward: 3327.14
+Steps: 1310720 | Eval reward: 2969.17
+Steps: 1320960 | Eval reward: 2860.25
+Steps: 1331200 | Eval reward: 1870.91
+Steps: 1341440 | Eval reward: 2617.97
+Steps: 1351680 | Eval reward: 3367.10
+New best reward: 3367.10
+Steps: 1361920 | Eval reward: 3345.04
+Steps: 1370112 | Eval reward: 3353.07
+Steps: 1380352 | Eval reward: 3401.09
+New best reward: 3401.09
+Steps: 1390592 | Eval reward: 3345.15
+Steps: 1400832 | Eval reward: 3163.36
+Steps: 1411072 | Eval reward: 3361.38
+Steps: 1421312 | Eval reward: 3479.59
+New best reward: 3479.59
+Steps: 1431552 | Eval reward: 3341.01
+Steps: 1441792 | Eval reward: 3409.89
+Steps: 1452032 | Eval reward: 2906.29
+Steps: 1460224 | Eval reward: 3339.12
+Steps: 1470464 | Eval reward: 1205.45
+Steps: 1480704 | Eval reward: 3067.34
+Steps: 1490944 | Eval reward: 2426.71
+Steps: 1501184 | Eval reward: 3473.05
+Training completed!
+Final checkpoint: walker2d_baseline_results/walker2d_baseline_final.pt
+Finished training episodes: 3906
+Optimization records: 733

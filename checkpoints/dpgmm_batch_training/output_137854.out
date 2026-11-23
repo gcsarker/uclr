@@ -1,0 +1,194 @@
+cores available to this process: 4 | machine cores: 256 | torch threads: 4 | cuda: True
+Steps: 10240 | Eval reward: 485.70
+New best reward: 485.70
+Steps: 20480 | Eval reward: 277.85
+Steps: 30720 | Eval reward: 404.57
+Steps: 40960 | Eval reward: 182.54
+Steps: 51200 | Eval reward: 320.66
+Steps: 61440 | Eval reward: 15.51
+Steps: 71680 | Eval reward: 388.22
+Steps: 81920 | Eval reward: 1182.61
+New best reward: 1182.61
+Steps: 90112 | Eval reward: 274.95
+Steps: 100352 | Eval reward: 515.68
+Steps: 110592 | Eval reward: 998.87
+Steps: 120832 | Eval reward: 917.59
+Steps: 131072 | Eval reward: 765.71
+Steps: 141312 | Eval reward: 617.29
+Steps: 151552 | Eval reward: 1466.06
+New best reward: 1466.06
+Steps: 161792 | Eval reward: 1181.93
+Steps: 172032 | Eval reward: 1005.79
+Steps: 180224 | Eval reward: 1361.29
+Steps: 190464 | Eval reward: 1897.10
+New best reward: 1897.10
+[DP-GMM] step 200704: K~8.9 (8-9), true IDs in subset 80, ARI 0.099, outcome PCA var 0.982
+Steps: 200704 | Eval reward: 1962.68
+New best reward: 1962.68
+Steps: 210944 | Eval reward: 1644.82
+Steps: 221184 | Eval reward: 2080.02
+New best reward: 2080.02
+Steps: 231424 | Eval reward: 2164.99
+New best reward: 2164.99
+Steps: 241664 | Eval reward: 2009.55
+Steps: 251904 | Eval reward: 1880.35
+Steps: 260096 | Eval reward: 1890.52
+Steps: 270336 | Eval reward: 2041.30
+Steps: 280576 | Eval reward: 1917.86
+Steps: 290816 | Eval reward: 2009.65
+[DP-GMM] step 301056: K~7.0 (7-7), true IDs in subset 127, ARI 0.079, outcome PCA var 0.990
+Steps: 301056 | Eval reward: 2248.94
+New best reward: 2248.94
+Steps: 311296 | Eval reward: 1934.72
+Steps: 321536 | Eval reward: 1939.13
+Steps: 331776 | Eval reward: 1845.25
+Steps: 342016 | Eval reward: 1831.49
+Steps: 350208 | Eval reward: 2006.97
+Steps: 360448 | Eval reward: 2038.88
+Steps: 370688 | Eval reward: 1821.87
+Steps: 380928 | Eval reward: 1750.78
+Steps: 391168 | Eval reward: 1790.41
+[DP-GMM] step 401408: K~5.0 (5-5), true IDs in subset 172, ARI 0.052, outcome PCA var 0.993
+Steps: 401408 | Eval reward: 1582.76
+Steps: 411648 | Eval reward: 1829.14
+Steps: 421888 | Eval reward: 1822.39
+Steps: 430080 | Eval reward: 1705.00
+Steps: 440320 | Eval reward: 1713.17
+Steps: 450560 | Eval reward: 1849.33
+Steps: 460800 | Eval reward: 1998.37
+Steps: 471040 | Eval reward: 2051.27
+Steps: 481280 | Eval reward: 2151.18
+Steps: 491520 | Eval reward: 2205.18
+[DP-GMM] step 501760: K~6.0 (6-6), true IDs in subset 217, ARI 0.056, outcome PCA var 0.996
+Steps: 501760 | Eval reward: 1760.66
+Steps: 512000 | Eval reward: 1918.07
+Steps: 520192 | Eval reward: 1957.72
+Steps: 530432 | Eval reward: 2026.48
+Steps: 540672 | Eval reward: 1894.28
+Steps: 550912 | Eval reward: 1698.98
+Steps: 561152 | Eval reward: 2065.41
+Steps: 571392 | Eval reward: 2326.76
+New best reward: 2326.76
+Steps: 581632 | Eval reward: 2068.73
+Steps: 591872 | Eval reward: 2418.71
+New best reward: 2418.71
+Steps: 600064 | Eval reward: 2107.41
+[DP-GMM] step 602112: K~4.0 (4-5), true IDs in subset 260, ARI 0.018, outcome PCA var 0.996
+Steps: 610304 | Eval reward: 2380.18
+Steps: 620544 | Eval reward: 2309.89
+Steps: 630784 | Eval reward: 2350.60
+Steps: 641024 | Eval reward: 2017.33
+Steps: 651264 | Eval reward: 1991.45
+Steps: 661504 | Eval reward: 2092.04
+Steps: 671744 | Eval reward: 2189.98
+Steps: 681984 | Eval reward: 2153.53
+Steps: 690176 | Eval reward: 2385.98
+Steps: 700416 | Eval reward: 2154.77
+[DP-GMM] step 702464: K~3.0 (3-3), true IDs in subset 305, ARI 0.014, outcome PCA var 0.995
+Steps: 710656 | Eval reward: 2098.17
+Steps: 720896 | Eval reward: 2179.30
+Steps: 731136 | Eval reward: 2026.16
+Steps: 741376 | Eval reward: 2085.77
+Steps: 751616 | Eval reward: 2030.11
+Steps: 761856 | Eval reward: 1924.10
+Steps: 770048 | Eval reward: 1890.15
+Steps: 780288 | Eval reward: 2102.00
+Steps: 790528 | Eval reward: 1921.57
+[DP-GMM] step 800768: K~5.0 (5-5), true IDs in subset 346, ARI 0.017, outcome PCA var 0.997
+Steps: 800768 | Eval reward: 2216.17
+Steps: 811008 | Eval reward: 2170.12
+Steps: 821248 | Eval reward: 2003.43
+Steps: 831488 | Eval reward: 1839.22
+Steps: 841728 | Eval reward: 2129.98
+Steps: 851968 | Eval reward: 1676.78
+Steps: 860160 | Eval reward: 1665.14
+Steps: 870400 | Eval reward: 1828.23
+Steps: 880640 | Eval reward: 1699.33
+Steps: 890880 | Eval reward: 1912.73
+[DP-GMM] step 901120: K~4.0 (4-4), true IDs in subset 388, ARI 0.014, outcome PCA var 0.997
+Steps: 901120 | Eval reward: 2001.64
+Steps: 911360 | Eval reward: 1674.33
+Steps: 921600 | Eval reward: 1743.08
+Steps: 931840 | Eval reward: 1792.55
+Steps: 940032 | Eval reward: 1815.29
+Steps: 950272 | Eval reward: 1695.78
+Steps: 960512 | Eval reward: 1771.04
+Steps: 970752 | Eval reward: 1991.42
+Steps: 980992 | Eval reward: 1407.46
+Steps: 991232 | Eval reward: 1825.76
+[DP-GMM] step 1001472: K~3.0 (3-3), true IDs in subset 427, ARI 0.008, outcome PCA var 0.997
+Steps: 1001472 | Eval reward: 1677.66
+Steps: 1011712 | Eval reward: 1853.89
+Steps: 1021952 | Eval reward: 1688.51
+Steps: 1030144 | Eval reward: 1863.58
+Steps: 1040384 | Eval reward: 1645.92
+Steps: 1050624 | Eval reward: 1596.66
+Steps: 1060864 | Eval reward: 1982.88
+Steps: 1071104 | Eval reward: 1965.45
+Steps: 1081344 | Eval reward: 1747.58
+Steps: 1091584 | Eval reward: 1517.32
+[DP-GMM] step 1101824: K~3.0 (3-3), true IDs in subset 448, ARI 0.006, outcome PCA var 0.998
+Steps: 1101824 | Eval reward: 1755.42
+Steps: 1110016 | Eval reward: 1808.15
+Steps: 1120256 | Eval reward: 1908.89
+Steps: 1130496 | Eval reward: 1822.96
+Steps: 1140736 | Eval reward: 1993.93
+Steps: 1150976 | Eval reward: 1654.09
+Steps: 1161216 | Eval reward: 1716.70
+Steps: 1171456 | Eval reward: 2094.87
+Steps: 1181696 | Eval reward: 1902.74
+Steps: 1191936 | Eval reward: 1806.02
+Steps: 1200128 | Eval reward: 1637.85
+[DP-GMM] step 1202176: K~3.0 (3-3), true IDs in subset 448, ARI 0.006, outcome PCA var 0.998
+Steps: 1210368 | Eval reward: 1942.49
+Steps: 1220608 | Eval reward: 1772.16
+Steps: 1230848 | Eval reward: 1212.66
+Steps: 1241088 | Eval reward: 1499.00
+Steps: 1251328 | Eval reward: 1411.10
+Steps: 1261568 | Eval reward: 1584.25
+Steps: 1271808 | Eval reward: 1492.15
+Steps: 1280000 | Eval reward: 1493.76
+Steps: 1290240 | Eval reward: 1576.44
+Steps: 1300480 | Eval reward: 1730.68
+[DP-GMM] step 1302528: K~3.0 (3-3), true IDs in subset 449, ARI 0.006, outcome PCA var 0.998
+Steps: 1310720 | Eval reward: 1807.61
+Steps: 1320960 | Eval reward: 1673.15
+Steps: 1331200 | Eval reward: 1637.20
+Steps: 1341440 | Eval reward: 1768.14
+Steps: 1351680 | Eval reward: 1540.28
+Steps: 1361920 | Eval reward: 1507.58
+Steps: 1370112 | Eval reward: 1737.31
+Steps: 1380352 | Eval reward: 1840.96
+Steps: 1390592 | Eval reward: 1791.73
+[DP-GMM] step 1400832: K~3.0 (3-3), true IDs in subset 445, ARI 0.006, outcome PCA var 0.997
+Steps: 1400832 | Eval reward: 1990.75
+Steps: 1411072 | Eval reward: 1810.87
+Steps: 1421312 | Eval reward: 1729.25
+Steps: 1431552 | Eval reward: 1839.28
+Steps: 1441792 | Eval reward: 1685.94
+Steps: 1452032 | Eval reward: 1853.81
+Steps: 1460224 | Eval reward: 1819.93
+Steps: 1470464 | Eval reward: 1786.70
+Steps: 1480704 | Eval reward: 1755.74
+Steps: 1490944 | Eval reward: 1728.86
+[DP-GMM] step 1501184: K~3.0 (3-3), true IDs in subset 453, ARI 0.006, outcome PCA var 0.998
+Steps: 1501184 | Eval reward: 1545.69
+Training completed! seconds per phase: {'explore': 403.7, 'dp_refresh': 388.4, 'optimize': 50811.9, 'dp_targets': 22680.9, 'evaluate': 1648.5}
+Final checkpoint: hopper_ldr_dpgmm_outcome_results/hopper_ldr_dpgmm_outcome_final.pt
+Finished training episodes: 3744
+Optimization records: 733
+    timesteps  K_mean  K_min  K_max  n_true_ids  ari_vs_ids  outcome_pca_var
+0      200704    8.90      8      9          80    0.099000         0.981569
+1      301056    7.00      7      7         127    0.078709         0.990028
+2      401408    5.00      5      5         172    0.052497         0.992514
+3      501760    6.00      6      6         217    0.056041         0.995660
+4      602112    4.05      4      5         260    0.018412         0.996159
+5      702464    3.00      3      3         305    0.013816         0.995434
+6      800768    5.00      5      5         346    0.017418         0.996883
+7      901120    4.00      4      4         388    0.013978         0.997107
+8     1001472    3.00      3      3         427    0.007622         0.997361
+9     1101824    3.00      3      3         448    0.006277         0.998241
+10    1202176    3.00      3      3         448    0.005668         0.998081
+11    1302528    3.00      3      3         449    0.005863         0.997796
+12    1400832    3.00      3      3         445    0.006149         0.997449
+13    1501184    3.00      3      3         453    0.006033         0.998254
