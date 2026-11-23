@@ -1332,9 +1332,7 @@ class GlobalDynamicsIDWrapper:
         return getattr(self.venv, name)
 
 
-
-
-ENV_ID = "Hopper-v5"          # or "Walker2d-v5", "Ant-v5", "Hopper-v5"
+ENV_ID = os.environ.get("ENV_ID", "Hopper-v5")  # or "Walker2d-v5", "Ant-v5", "Hopper-v5" "HalfCheetah-v5"
 TRAIN_SWITCH = {"HalfCheetah-v5": 5000}.get(ENV_ID, 2000)
 
 NUM_ENVS = 16
@@ -1354,33 +1352,32 @@ def make_env(env_id, required_experience_length, mode="change", render_mode=None
         return env
     return _make
 
-train_env = GlobalDynamicsIDWrapper(makeVecEnv([make_env(ENV_ID, TRAIN_SWITCH) for _ in range(NUM_ENVS)]))
-eval_env  = GlobalDynamicsIDWrapper(makeVecEnv([make_env(ENV_ID, 1) for _ in range(NUM_ENVS)]))
 
-config = LDRConfig(**ENV_PRESETS[ENV_ID])
+if __name__ == "__main__":
+    train_env = GlobalDynamicsIDWrapper(makeVecEnv([make_env(ENV_ID, TRAIN_SWITCH) for _ in range(NUM_ENVS)]))
+    eval_env  = GlobalDynamicsIDWrapper(makeVecEnv([make_env(ENV_ID, 1) for _ in range(NUM_ENVS)]))
 
-random.seed(config.seed)
-np.random.seed(config.seed)
-torch.manual_seed(config.seed)
+    config = LDRConfig(**{**ENV_PRESETS[ENV_ID], "dp_hard_labels": False})
 
-agent = LDRAgent(env=train_env, env_ID=ENV_ID, config=config)
+    random.seed(config.seed)
+    np.random.seed(config.seed)
+    torch.manual_seed(config.seed)
 
+    agent = LDRAgent(env=train_env, env_ID=ENV_ID, config=config)
 
-# Main training
+    RUN_DIR = Path(f"checkpoints/ldr/{agent.env_name}_ldr_results")
+    RUN_DIR.mkdir(exist_ok=True, parents=True)
 
-RUN_DIR = Path(f"{agent.env_name}_ldr_results")
-RUN_DIR.mkdir(exist_ok=True, parents=True)
+    try:
+        # xu uses eval_num = 1, ours is averaging over 3
+        history = agent.train(eval_env=eval_env, eval_num=3, RUN_DIR=RUN_DIR) 
+        agent.save(str(RUN_DIR / f"{agent.env_name}_ldr_final.pt"))
+        history_df = pd.DataFrame(history)
+        history_df.to_csv(RUN_DIR / f"{agent.env_name}_ldr_history.csv", index=False)
+        print("Final checkpoint:", RUN_DIR / f"{agent.env_name}_ldr_final.pt")
+    finally:
+        train_env.close()
+        eval_env.close()
 
-try:
-    # xu uses eval_num = 1, ours is averaging over 3
-    history = agent.train(eval_env=eval_env, eval_num=3, RUN_DIR=RUN_DIR) 
-    agent.save(str(RUN_DIR / f"{agent.env_name}_ldr_final.pt"))
-    history_df = pd.DataFrame(history)
-    history_df.to_csv(RUN_DIR / "history.csv", index=False)
-    print("Final checkpoint:", RUN_DIR / f"{agent.env_name}_ldr_final.pt")
-finally:
-    train_env.close()
-    eval_env.close()
-
-print("Finished training episodes:", len(agent.completed_returns))
-print("Optimization records:", len(history))
+    print("Finished training episodes:", len(agent.completed_returns))
+    print("Optimization records:", len(history))

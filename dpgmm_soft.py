@@ -23,7 +23,6 @@ import torch.nn.functional as F
 import matplotlib.pyplot as plt
 import imageio.v2 as imageio
 from pathlib import Path
-from IPython.display import Video, display
 import pandas as pd
 from pathlib import Path
 import json
@@ -1802,38 +1801,40 @@ def make_env(env_id, required_experience_length, mode="change", render_mode=None
         return env
     return _make
 
-train_env = GlobalDynamicsIDWrapper(makeVecEnv([make_env(ENV_ID, TRAIN_SWITCH) for _ in range(NUM_ENVS)]))
-eval_env  = GlobalDynamicsIDWrapper(makeVecEnv([make_env(ENV_ID, 1) for _ in range(NUM_ENVS)]))
 
-config = LDRConfig(**{**ENV_PRESETS[ENV_ID], "dp_hard_labels": False})   # soft co-clustering targets
+if  __name__ == "__main__":
+    train_env = GlobalDynamicsIDWrapper(makeVecEnv([make_env(ENV_ID, TRAIN_SWITCH) for _ in range(NUM_ENVS)]))
+    eval_env  = GlobalDynamicsIDWrapper(makeVecEnv([make_env(ENV_ID, 1) for _ in range(NUM_ENVS)]))
 
-random.seed(config.seed)
-np.random.seed(config.seed)
-torch.manual_seed(config.seed)
+    config = LDRConfig(**{**ENV_PRESETS[ENV_ID], "dp_hard_labels": False})   # soft co-clustering targets
 
-agent = LDRAgent(env=train_env, env_ID=ENV_ID, config=config)
+    random.seed(config.seed)
+    np.random.seed(config.seed)
+    torch.manual_seed(config.seed)
+
+    agent = LDRAgent(env=train_env, env_ID=ENV_ID, config=config)
 
 
 
-# Main training
+    # Main training
 
-RUN_DIR = Path(f"checkpoints/{agent.env_name}_dpgmm_soft_results")
-RUN_DIR.mkdir(exist_ok=True, parents=True)
+    RUN_DIR = Path(f"checkpoints/dpgmm_soft/{agent.env_name}_dpgmm_soft_results")
+    RUN_DIR.mkdir(exist_ok=True, parents=True)
 
-try:
-    # xu uses eval_num = 1, ours is averaging over 3
-    history = agent.train(eval_env=eval_env, eval_num=3, RUN_DIR=RUN_DIR) 
-    agent.save(str(RUN_DIR / f"{agent.env_name}_dpgmm_soft_final.pt"))
-    history_df = pd.DataFrame(history)
-    history_df.to_csv(RUN_DIR / "training_history.csv", index=False)
-    print("Final checkpoint:", RUN_DIR / f"{agent.env_name}_dpgmm_soft_final.pt")
-finally:
-    train_env.close()
-    eval_env.close()
+    try:
+        # xu uses eval_num = 1, ours is averaging over 3
+        history = agent.train(eval_env=eval_env, eval_num=3, RUN_DIR=RUN_DIR) 
+        agent.save(str(RUN_DIR / f"{agent.env_name}_dpgmm_soft_final.pt"))
+        history_df = pd.DataFrame(history)
+        history_df.to_csv(RUN_DIR / f"{agent.env_name}_dpgmm_soft_history.csv", index=False)
+        print("Final checkpoint:", RUN_DIR / f"{agent.env_name}_dpgmm_soft_final.pt")
+    finally:
+        train_env.close()
+        eval_env.close()
 
-print("Finished training episodes:", len(agent.completed_returns))
-print("Optimization records:", len(history))
+    print("Finished training episodes:", len(agent.completed_returns))
+    print("Optimization records:", len(history))
 
-# DP-GMM refresh log (cluster count and ARI vs. true dynamics IDs, diagnostic only)
-pd.DataFrame(agent.dp_log).to_csv(RUN_DIR / "dp_log.csv", index=False)
-print(pd.DataFrame(agent.dp_log))
+    # DP-GMM refresh log (cluster count and ARI vs. true dynamics IDs, diagnostic only)
+    pd.DataFrame(agent.dp_log).to_csv(RUN_DIR / "dp_log.csv", index=False)
+    print(pd.DataFrame(agent.dp_log))

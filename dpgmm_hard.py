@@ -1387,7 +1387,7 @@ class LDRAgent:
 
                 if eval_reward > best_eval_reward:
                     best_eval_reward = eval_reward
-                    self.save(RUN_DIR / f"{self.env_name}_dpgmm_best.pt")
+                    self.save(RUN_DIR / f"{self.env_name}_dpgmm_hard_best.pt")
                     print(f"New best reward: {best_eval_reward:.2f}")
 
                 # Advance evaluation threshold
@@ -1769,7 +1769,7 @@ class GlobalDynamicsIDWrapper:
 
 
 
-ENV_ID = "Hopper-v5"          # or "Walker2d-v5", "Ant-v5", "Hopper-v5" "HalfCheetah-v5"
+ENV_ID = os.environ.get("ENV_ID", "Hopper-v5")  # or "Walker2d-v5", "Ant-v5", "Hopper-v5" "HalfCheetah-v5"
 TRAIN_SWITCH = {"HalfCheetah-v5": 5000}.get(ENV_ID, 2000)
 
 NUM_ENVS = 16
@@ -1789,38 +1789,39 @@ def make_env(env_id, required_experience_length, mode="change", render_mode=None
         return env
     return _make
 
-train_env = GlobalDynamicsIDWrapper(makeVecEnv([make_env(ENV_ID, TRAIN_SWITCH) for _ in range(NUM_ENVS)]))
-eval_env  = GlobalDynamicsIDWrapper(makeVecEnv([make_env(ENV_ID, 1) for _ in range(NUM_ENVS)]))
+if __name__ == "__main__":
+    train_env = GlobalDynamicsIDWrapper(makeVecEnv([make_env(ENV_ID, TRAIN_SWITCH) for _ in range(NUM_ENVS)]))
+    eval_env  = GlobalDynamicsIDWrapper(makeVecEnv([make_env(ENV_ID, 1) for _ in range(NUM_ENVS)]))
 
-config = LDRConfig(**ENV_PRESETS[ENV_ID])
+    config = LDRConfig(**ENV_PRESETS[ENV_ID])
 
-random.seed(config.seed)
-np.random.seed(config.seed)
-torch.manual_seed(config.seed)
+    random.seed(config.seed)
+    np.random.seed(config.seed)
+    torch.manual_seed(config.seed)
 
-agent = LDRAgent(env=train_env, env_ID=ENV_ID, config=config)
+    agent = LDRAgent(env=train_env, env_ID=ENV_ID, config=config)
 
 
 
-# Main training
+    # Main training
 
-RUN_DIR = Path(f"{agent.env_name}_dpgmm_results")
-RUN_DIR.mkdir(exist_ok=True, parents=True)
+    RUN_DIR = Path(f"checkpoints/dpgmm_hard/{agent.env_name}_dpgmm_hard_results")
+    RUN_DIR.mkdir(exist_ok=True, parents=True)
 
-try:
-    # xu uses eval_num = 1, ours is averaging over 3
-    history = agent.train(eval_env=eval_env, eval_num=3, RUN_DIR=RUN_DIR) 
-    agent.save(str(RUN_DIR / f"{agent.env_name}_dpgmm_final.pt"))
-    history_df = pd.DataFrame(history)
-    history_df.to_csv(RUN_DIR / "training_history.csv", index=False)
-    print("Final checkpoint:", RUN_DIR / f"{agent.env_name}_dpgmm_final.pt")
-finally:
-    train_env.close()
-    eval_env.close()
+    try:
+        # xu uses eval_num = 1, ours is averaging over 3
+        history = agent.train(eval_env=eval_env, eval_num=3, RUN_DIR=RUN_DIR) 
+        agent.save(str(RUN_DIR / f"{agent.env_name}_dpgmm_final.pt"))
+        history_df = pd.DataFrame(history)
+        history_df.to_csv(RUN_DIR / f"{agent.env_name}_dpgmm_hard_history.csv", index=False)
+        print("Final checkpoint:", RUN_DIR / f"{agent.env_name}_dpgmm_hard_final.pt")
+    finally:
+        train_env.close()
+        eval_env.close()
 
-print("Finished training episodes:", len(agent.completed_returns))
-print("Optimization records:", len(history))
+    print("Finished training episodes:", len(agent.completed_returns))
+    print("Optimization records:", len(history))
 
-# DP-GMM refresh log (cluster count and ARI vs. true dynamics IDs, diagnostic only)
-pd.DataFrame(agent.dp_log).to_csv(RUN_DIR / "dp_log.csv", index=False)
-print(pd.DataFrame(agent.dp_log))
+    # DP-GMM refresh log (cluster count and ARI vs. true dynamics IDs, diagnostic only)
+    pd.DataFrame(agent.dp_log).to_csv(RUN_DIR / f"{agent.env_name}_dpgmm_hard_dp_log.csv", index=False)
+    print(pd.DataFrame(agent.dp_log))
