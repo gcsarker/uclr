@@ -1,0 +1,3 @@
+joint,actuator,reward_mean,reward_std,full_reward_mean,falls,falls_before_failure,n_episodes,pct_of_intact
+intact,intact,3532.9570919153666,52.05087376444573,4140.151815148876,0,0,10,100.0
+0,actuator_0,315.07964854542104,133.59200175573253,922.274371778931,10,0,10,8.918298194632275
