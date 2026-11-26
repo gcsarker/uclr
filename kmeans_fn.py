@@ -1517,8 +1517,11 @@ if __name__ == "__main__":
 
     if "SEED" in os.environ:                      # override only when passed from the console
             config.seed = int(os.environ["SEED"])
-    print(f"Training {ENV_ID} with seed {config.seed}")
+    if "KMEANS_K" in os.environ:                       # override K only when passed
+        config.kmeans_k = int(os.environ["KMEANS_K"])
+    print(f"Training {ENV_ID} | seed {config.seed} | K {config.kmeans_k}")
     
+
     random.seed(config.seed)
     np.random.seed(config.seed)
     torch.manual_seed(config.seed)
@@ -1528,7 +1531,8 @@ if __name__ == "__main__":
 
     # Main training
 
-    RUN_DIR = Path(f"checkpoints/kmeans_fn/{agent.env_name}_kmeans_fn_results")
+    # RUN_DIR = Path(f"checkpoints/kmeans_fn/{agent.env_name}_kmeans_fn_results")
+    RUN_DIR = Path(f"checkpoints/kmeans_fn/{agent.env_name}_kmeans_fn_k{config.kmeans_k}_results")
     RUN_DIR.mkdir(exist_ok=True, parents=True)
 
     try:

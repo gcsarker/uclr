@@ -7,15 +7,31 @@
 #SBATCH --mem=80G
 #SBATCH --output=/network/rit/dgx/dgx_dahlin_lab/Gobinda/uclr/logs/slurm/slurm_%j.out
 
-# Usage: sbatch train.sh <ENV_ID> <script.py> [model_name] [seed]
-#   sbatch train.sh Hopper-v5 baseline.py
-#   sbatch train.sh Ant-v5 kmeans_fn.py kmeans_fn 1000
+# Usage: sbatch train.sh <ENV_ID> <script.py> [model_name] [seed] [kmeans_k]
+#   ENV_ID      Hopper-v5 | Walker2d-v5 | HalfCheetah-v5 | Ant-v5
+#   script.py   training script in the repo root (baseline.py, ldr.py, kmeans_fn.py, ...)
+#   model_name  log folder / tag name (default: script name without .py)
+#   seed        training seed (default: LDRConfig.seed); pass "" to skip
+#   kmeans_k    number of K-means clusters, kmeans_fn.py only (default: LDRConfig.kmeans_k)
+#
+# Examples:
+#   sbatch train.sh Hopper-v5 baseline.py                          # defaults
+#   sbatch train.sh Walker2d-v5 ldr.py                             # defaults
+#   sbatch train.sh Walker2d-v5 ldr.py ldr_dpgmm                   # custom model name
+#   sbatch train.sh Ant-v5 ldr.py ldr 1000                         # seed 1000
+#   sbatch train.sh Ant-v5 kmeans_fn.py kmeans_fn 1000 64          # seed 1000, K=64
+#   sbatch train.sh Hopper-v5 kmeans_fn.py kmeans_fn "" 32         # default seed, K=32
+#   sbatch --time=24:00:00 train.sh Ant-v5 kmeans_fn.py            # longer time limit
+#
+# K sweep:
+#   for k in 4 8 16 32 64 128; do sbatch train.sh Ant-v5 kmeans_fn.py kmeans_fn "" "$k"; done
 set -e
 
-ENV_ID=${1:?usage: sbatch train.sh <ENV_ID> <script.py> [model_name]}
-SCRIPT=${2:?usage: sbatch train.sh <ENV_ID> <script.py> [model_name]}
+ENV_ID=${1:?usage: sbatch train.sh <ENV_ID> <script.py> [model_name] [seed] [kmeans_k]}
+SCRIPT=${2:?usage: sbatch train.sh <ENV_ID> <script.py> [model_name] [seed] [kmeans_k]}
 MODEL_NAME=${3:-$(basename "$SCRIPT" .py)}
 SEED=${4:-}
+KMEANS_K=${5:-}
 
 case "$ENV_ID" in
     Hopper-v5|Walker2d-v5|HalfCheetah-v5|Ant-v5) ;;
@@ -31,7 +47,7 @@ if [ ! -f "$SCRIPT" ]; then
 fi
 
 ENV_NAME=$(echo "${ENV_ID%%-*}" | tr '[:upper:]' '[:lower:]')   # Walker2d-v5 -> walker2d
-TAG="${MODEL_NAME}_${ENV_NAME}"
+TAG="${MODEL_NAME}_${ENV_NAME}${KMEANS_K:+_k$KMEANS_K}${SEED:+_seed$SEED}"
 
 # One folder per model: logs/<model>/<model>_<env>_output_<jobid>.out and ..._error_<jobid>.err
 LOG_DIR="$WORK_DIR/logs/$MODEL_NAME"
@@ -46,7 +62,8 @@ conda activate ldr
 
 export ENV_ID                                   # the Python script reads it with os.environ
 if [ -n "$SEED" ]; then export SEED; else unset SEED; fi
+if [ -n "$KMEANS_K" ]; then export KMEANS_K; else unset KMEANS_K; fi
 export LDR_NUM_THREADS=${SLURM_CPUS_PER_TASK:-4}
 
-echo "job $SLURM_JOB_ID | $SCRIPT | $ENV_ID | seed ${SEED:-default} | node $(hostname)"
+echo "job $SLURM_JOB_ID | $SCRIPT | $ENV_ID | seed ${SEED:-default} | K ${KMEANS_K:-default} | node $(hostname)"
 python -u "$SCRIPT"
