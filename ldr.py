@@ -1359,6 +1359,10 @@ if __name__ == "__main__":
 
     config = LDRConfig(**{**ENV_PRESETS[ENV_ID], "dp_hard_labels": False})
 
+    if "SEED" in os.environ:                      # override only when passed from the console
+            config.seed = int(os.environ["SEED"])
+    print(f"Training {ENV_ID} with seed {config.seed}")
+
     random.seed(config.seed)
     np.random.seed(config.seed)
     torch.manual_seed(config.seed)

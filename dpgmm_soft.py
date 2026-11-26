@@ -56,7 +56,7 @@ class LDRConfig:
     gradient_steps: int = 2048           # gradient updates per optimize() call (1 per env step)
     batch_size: int = 256
     eval_interval: int = 10_000
-    buffer_size: int = 1_000_000
+    buffer_size: int = 1_600_000
     gamma: float = 0.99
     tau: float = 0.005
     learning_rate: float = 3e-4
@@ -105,10 +105,10 @@ class LDRConfig:
 
 
 ENV_PRESETS = {
-    "Hopper-v5":      dict(latent_dim=3, reward_scale=0.008, beta_max=0.10, learning_rate=3e-4, decoder_hidden_dim=256),
-    "Walker2d-v5":    dict(latent_dim=3, reward_scale=0.004, beta_max=0.07, learning_rate=3e-4, decoder_hidden_dim=256),
-    "HalfCheetah-v5": dict(latent_dim=3, reward_scale=0.004, beta_max=0.07, learning_rate=3e-4, decoder_hidden_dim=256),
-    "Ant-v5":         dict(latent_dim=5, reward_scale=0.006, beta_max=0.04, learning_rate=1e-4, decoder_hidden_dim=512),
+    "Hopper-v5":      dict(latent_dim=3, reward_scale=0.008, beta_max=0.10, learning_rate=3e-4, decoder_hidden_dim=256, total_timesteps=1_500_000, buffer_size=1_600_000),
+    "Walker2d-v5":    dict(latent_dim=3, reward_scale=0.004, beta_max=0.07, learning_rate=3e-4, decoder_hidden_dim=256, total_timesteps=1_500_000, buffer_size=1_600_000),
+    "HalfCheetah-v5": dict(latent_dim=3, reward_scale=0.004, beta_max=0.07, learning_rate=3e-4, decoder_hidden_dim=256, total_timesteps=1_500_000, buffer_size=1_600_000),
+    "Ant-v5":         dict(latent_dim=5, reward_scale=0.006, beta_max=0.04, learning_rate=1e-4, decoder_hidden_dim=512, total_timesteps=2_000_000, buffer_size=2_100_000),
 }
 
 
@@ -1807,6 +1807,10 @@ if  __name__ == "__main__":
     eval_env  = GlobalDynamicsIDWrapper(makeVecEnv([make_env(ENV_ID, 1) for _ in range(NUM_ENVS)]))
 
     config = LDRConfig(**{**ENV_PRESETS[ENV_ID], "dp_hard_labels": False})   # soft co-clustering targets
+
+    if "SEED" in os.environ:                      # override only when passed from the console
+            config.seed = int(os.environ["SEED"])
+    print(f"Training {ENV_ID} with seed {config.seed}")
 
     random.seed(config.seed)
     np.random.seed(config.seed)

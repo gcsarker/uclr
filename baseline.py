@@ -40,7 +40,7 @@ class LDRConfig:
     gradient_steps: int = 2048           # gradient updates per optimize() call (1 per env step)
     batch_size: int = 256
     eval_interval: int = 10_000
-    buffer_size: int = 1_000_000
+    buffer_size: int = 1_600_000
     gamma: float = 0.99
     tau: float = 0.005
     learning_rate: float = 3e-4
@@ -69,10 +69,10 @@ class LDRConfig:
 
 
 ENV_PRESETS = {
-    "Hopper-v5":      dict(latent_dim=3, reward_scale=0.008, beta_max=0.10, learning_rate=3e-4, decoder_hidden_dim=256),
-    "Walker2d-v5":    dict(latent_dim=3, reward_scale=0.004, beta_max=0.07, learning_rate=3e-4, decoder_hidden_dim=256),
-    "HalfCheetah-v5": dict(latent_dim=3, reward_scale=0.004, beta_max=0.07, learning_rate=3e-4, decoder_hidden_dim=256),
-    "Ant-v5":         dict(latent_dim=5, reward_scale=0.006, beta_max=0.04, learning_rate=1e-4, decoder_hidden_dim=512),
+    "Hopper-v5":      dict(latent_dim=3, reward_scale=0.008, beta_max=0.10, learning_rate=3e-4, decoder_hidden_dim=256, total_timesteps=1_500_000, buffer_size=1_600_000),
+    "Walker2d-v5":    dict(latent_dim=3, reward_scale=0.004, beta_max=0.07, learning_rate=3e-4, decoder_hidden_dim=256, total_timesteps=1_500_000, buffer_size=1_600_000),
+    "HalfCheetah-v5": dict(latent_dim=3, reward_scale=0.004, beta_max=0.07, learning_rate=3e-4, decoder_hidden_dim=256, total_timesteps=1_500_000, buffer_size=1_600_000),
+    "Ant-v5":         dict(latent_dim=5, reward_scale=0.006, beta_max=0.04, learning_rate=1e-4, decoder_hidden_dim=512, total_timesteps=2_000_000, buffer_size=2_100_000),
 }
 
 def applyLipschitzRegularization(module, reg_mode):
@@ -1355,33 +1355,39 @@ def make_env(env_id, required_experience_length, mode="change", render_mode=None
         return env
     return _make
 
-train_env = GlobalDynamicsIDWrapper(makeVecEnv([make_env(ENV_ID, TRAIN_SWITCH) for _ in range(NUM_ENVS)]))
-eval_env  = GlobalDynamicsIDWrapper(makeVecEnv([make_env(ENV_ID, 1) for _ in range(NUM_ENVS)]))
 
-config = LDRConfig(**ENV_PRESETS[ENV_ID])
+if  __name__ == "__main__":
+    train_env = GlobalDynamicsIDWrapper(makeVecEnv([make_env(ENV_ID, TRAIN_SWITCH) for _ in range(NUM_ENVS)]))
+    eval_env  = GlobalDynamicsIDWrapper(makeVecEnv([make_env(ENV_ID, 1) for _ in range(NUM_ENVS)]))
 
-random.seed(config.seed)
-np.random.seed(config.seed)
-torch.manual_seed(config.seed)
+    config = LDRConfig(**ENV_PRESETS[ENV_ID])
 
-agent = LDRAgent(env=train_env, env_ID=ENV_ID, config=config)
+    if "SEED" in os.environ:                      # override only when passed from the console
+        config.seed = int(os.environ["SEED"])
+    print(f"Training {ENV_ID} with seed {config.seed}")
+
+    random.seed(config.seed)
+    np.random.seed(config.seed)
+    torch.manual_seed(config.seed)
+
+    agent = LDRAgent(env=train_env, env_ID=ENV_ID, config=config)
 
 
-# Main training
+    # Main training
 
-RUN_DIR = Path(f"{agent.env_name}_baseline_results")
-RUN_DIR.mkdir(exist_ok=True, parents=True)
+    RUN_DIR = Path(f"{agent.env_name}_baseline_results")
+    RUN_DIR.mkdir(exist_ok=True, parents=True)
 
-try:
-    # xu uses eval_num = 1, ours is averaging over 3
-    history = agent.train(eval_env=eval_env, eval_num=3, RUN_DIR=RUN_DIR) 
-    agent.save(str(RUN_DIR / f"{agent.env_name}_baseline_final.pt"))
-    history_df = pd.DataFrame(history)
-    history_df.to_csv(RUN_DIR / "history.csv", index=False)
-    print("Final checkpoint:", RUN_DIR / f"{agent.env_name}_baseline_final.pt")
-finally:
-    train_env.close()
-    eval_env.close()
+    try:
+        # xu uses eval_num = 1, ours is averaging over 3
+        history = agent.train(eval_env=eval_env, eval_num=3, RUN_DIR=RUN_DIR) 
+        agent.save(str(RUN_DIR / f"{agent.env_name}_baseline_final.pt"))
+        history_df = pd.DataFrame(history)
+        history_df.to_csv(RUN_DIR / "history.csv", index=False)
+        print("Final checkpoint:", RUN_DIR / f"{agent.env_name}_baseline_final.pt")
+    finally:
+        train_env.close()
+        eval_env.close()
 
-print("Finished training episodes:", len(agent.completed_returns))
-print("Optimization records:", len(history))
+    print("Finished training episodes:", len(agent.completed_returns))
+    print("Optimization records:", len(history))

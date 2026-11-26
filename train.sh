@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=LDR_Training
+#SBATCH --job-name=UCLR
 #SBATCH --propagate=NONE
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=4
@@ -7,15 +7,15 @@
 #SBATCH --mem=80G
 #SBATCH --output=/network/rit/dgx/dgx_dahlin_lab/Gobinda/uclr/logs/slurm/slurm_%j.out
 
-# Usage: sbatch train.sh <ENV_ID> <script.py> [model_name]
+# Usage: sbatch train.sh <ENV_ID> <script.py> [model_name] [seed]
 #   sbatch train.sh Hopper-v5 baseline.py
-#   sbatch train.sh Walker2d-v5 dpgmm_soft.py
-#   sbatch train.sh Walker2d-v5 ldr.py ldr_dpgmm
+#   sbatch train.sh Ant-v5 kmeans_fn.py kmeans_fn 1000
 set -e
 
 ENV_ID=${1:?usage: sbatch train.sh <ENV_ID> <script.py> [model_name]}
 SCRIPT=${2:?usage: sbatch train.sh <ENV_ID> <script.py> [model_name]}
 MODEL_NAME=${3:-$(basename "$SCRIPT" .py)}
+SEED=${4:-}
 
 case "$ENV_ID" in
     Hopper-v5|Walker2d-v5|HalfCheetah-v5|Ant-v5) ;;
@@ -45,7 +45,8 @@ source /network/rit/dgx/dgx_dahlin_lab/Gobinda/anaconda3/etc/profile.d/conda.sh
 conda activate ldr
 
 export ENV_ID                                   # the Python script reads it with os.environ
+if [ -n "$SEED" ]; then export SEED; else unset SEED; fi
 export LDR_NUM_THREADS=${SLURM_CPUS_PER_TASK:-4}
 
-echo "job $SLURM_JOB_ID | $SCRIPT | $ENV_ID | node $(hostname)"
+echo "job $SLURM_JOB_ID | $SCRIPT | $ENV_ID | seed ${SEED:-default} | node $(hostname)"
 python -u "$SCRIPT"
